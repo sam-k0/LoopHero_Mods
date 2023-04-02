@@ -1,0 +1,10 @@
+This file contains information about menus in Loop Hero v. 1.154 
+As of 2023/04/02 this is the newest version available on EpicGames Store.
+
+gml_Object_o_base_button_Mouse_56 - Gets triggered when clicking anywhere in the menu screen
+gml_Object_o_base_button_Mouse_10 - Hover-entering a button;
+gml_Object_o_base_button_Mouse_11 - Hover-leaving a button;
+
+--- 
+
+gml_Object_o_opt_full_button_Other_10 - Gets triggered when toggling fullscreen

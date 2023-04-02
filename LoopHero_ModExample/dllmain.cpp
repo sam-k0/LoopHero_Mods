@@ -1,43 +1,26 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include <Windows.h>
-#define YYSDK_PLUGIN // Declare the following code as a plugin
-#include "SDK/SDK.hpp"
 
-HINSTANCE DllHandle;
+// YYTK is in this now
+#include "MyHelper.h"
 
-std::string gPluginName = "ModHero";
-YYTKPlugin* gThisPlugin = nullptr;
-CallbackAttributes_t* callbackAttr = nullptr;
-std::vector<std::string> codeEventNames;
+// Plugin functionality
+#include <fstream>
+#include <iterator>
+#define _CRT_SECURE_NO_WARNINGS
 
-bool MyVectorContains(std::string find, std::vector<std::string>* v)
-{
-    if (std::find(v->begin(), v->end(), find) != v->end())
+ // Add all event names to the vector without duplicates
+    /*
+    My::AddToVectorNoDuplicates(codeObj->i_pName, &codeEventNames);
+    if (codeEventNames.size() > 400)
     {
-        return true;
-    }
-    return false;
-}
-
-bool MyAddToVectorNoDuplicates(std::string str, std::vector<std::string>* v)
-{
-    if (MyVectorContains(str, v))
-    {
-        return false;
-    }
-    v->push_back(str);
-    return true;
-}
-
-void MyPrint(std::string s, Color c = CLR_DEFAULT)
-{
-    PrintMessage(c, (gPluginName + ": " + s).c_str());
-}
+        codeEventNames.clear();
+        My::Print("Clearing code event names due to excessive size.", CLR_RED);
+    }*/
 
 // Unload
 YYTKStatus PluginUnload()
 {
-
     PmRemoveCallback(callbackAttr);
 
     return YYTK_OK;
@@ -56,15 +39,37 @@ YYTKStatus my_callback_fn(YYTKCodeEvent* codeEvent, void*)
     if (!codeObj->i_pName)
         return YYTK_INVALIDARG;
 
-    // If we're not executing the relevant piece of code
-    //if (!strstr(codeObj->i_pName, "obj_menu_WindowMode_Other_10"))
-    //   return YYTK_UNAVAILABLE;
-    
-    // Add all event names to the vector without duplicates
-    MyAddToVectorNoDuplicates(codeObj->i_pName, &codeEventNames);
 
+    // Original event
     codeEvent->Call(selfInst, otherInst, codeObj, std::get<3>(codeEvent->Arguments()), std::get<4>(codeEvent->Arguments()));
 
+
+    if (My::StringHasSubstr(codeObj->i_pName, "gml_Object_o_opt_full_button_Other_10"))
+    {
+        // Fullscreen toggle button has been pressed
+        YYRValue isFullscreen;
+        CallBuiltin(isFullscreen, "window_get_fullscreen", selfInst, otherInst, {});
+
+        //if (static_cast<bool>(isFullscreen))
+        {
+            My::Print("Changing to Borderless");
+            YYRValue result;
+            CallBuiltin(result, "window_handle", selfInst, otherInst, {});
+
+            HWND window_handle = reinterpret_cast<HWND>(result.As<RValue>().Pointer);
+           
+
+            LONG lStyle = GetWindowLong(window_handle, GWL_STYLE);
+            lStyle &= ~(WS_CAPTION | WS_THICKFRAME | WS_MINIMIZE | WS_MAXIMIZE | WS_SYSMENU);
+            SetWindowLong(window_handle, GWL_STYLE, lStyle);
+            LONG lExStyle = GetWindowLong(window_handle, GWL_EXSTYLE);
+            lExStyle &= ~(WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE | WS_EX_STATICEDGE);
+            SetWindowLong(window_handle, GWL_EXSTYLE, lExStyle);
+            SetWindowPos(window_handle, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED | SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_NOOWNERZORDER);
+        }
+    }
+
+   
     return YYTK_OK;
 }
 
@@ -74,7 +79,7 @@ DllExport YYTKStatus PluginEntry(
     YYTKPlugin* PluginObject // A pointer to the dedicated plugin object
 )
 {
-    MyPrint("Hello! with sus");
+    My::Print("Hello!");
 
     gThisPlugin = PluginObject;
     gThisPlugin->PluginUnload = PluginUnload;
@@ -98,7 +103,15 @@ DWORD WINAPI Menu(HINSTANCE hModule)
         Sleep(50);
         if (GetAsyncKeyState(VK_NUMPAD0))
         {
-            MyPrint("pressed!");
+            My::Print("Dumping to file!");
+            My::VectorToFile(&codeEventNames);
+            Sleep(300);
+        }
+        if (GetAsyncKeyState(VK_NUMPAD1))
+        {
+            My::Print("Resetting event vector");
+            codeEventNames.clear();
+            Sleep(300);
         }
     }
 }
@@ -112,7 +125,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     {
     case DLL_PROCESS_ATTACH:
         DllHandle = hModule;
-        CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Menu, NULL, 0, NULL);
+        CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Menu, NULL, 0, NULL); // For the input
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:

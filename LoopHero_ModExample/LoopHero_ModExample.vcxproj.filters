@@ -13,89 +13,98 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\SDK">
+      <UniqueIdentifier>{b0ec1042-f110-415d-b39f-0c28feea947f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SDK">
+      <UniqueIdentifier>{f81e8775-e451-4a62-ae04-3d48633dfc2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SDK\Plugins\API Definitions\APIDefs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Plugins\Plugins.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\Structures\Documented\CDynamicArray\CDynamicArray.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Plugins\Plugins.cpp">
+      <Filter>Source Files\SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\Structures\Documented\RefThing\RefThing.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\Structures\Documented\YYRValue\YYRValue.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SDK</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SDK\Enums\Enums.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\FwdDecls\FwdDecls.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SDK\Plugins\API Definitions\APIDefs.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Plugins\YYTKEvent\YYTKEvent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Plugins\Plugins.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Structures\Documented\APIVars\APIVars.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Structures\Documented\CCode\CCode.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Structures\Documented\CDynamicArray\CDynamicArray.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Structures\Documented\CHashMap\CHashMap.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Structures\Documented\FunctionInfo\FunctionInfo.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Structures\Documented\Math\Math.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Structures\Documented\RefThing\RefThing.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Structures\Documented\RToken\RToken.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Structures\Documented\VMBuffer\VMBuffer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Structures\Documented\YYRValue\YYRValue.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\Structures\Undocumented\CScript\CScript.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\Structures\Undocumented\VMExec\VMExec.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SDK\Enums\Enums.hpp">
+      <Filter>Header Files\SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\Structures\Undocumented\YYGMLFuncs\YYGMLFuncs.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SDK\Structures\Documented\FunctionInfo\FunctionInfo.hpp">
+      <Filter>Header Files\SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\Structures\Undocumented\YYObjectBase\YYObjectBase.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SDK\FwdDecls\FwdDecls.hpp">
+      <Filter>Header Files\SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\Structures\Undocumented\YYVAR\YYVAR.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SDK\Structures\Documented\Math\Math.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Plugins\Plugins.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\RefThing\RefThing.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\RToken\RToken.hpp">
+      <Filter>Header Files\SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\SDK.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\VMBuffer\VMBuffer.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Undocumented\VMExec\VMExec.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Undocumented\YYGMLFuncs\YYGMLFuncs.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Undocumented\YYObjectBase\YYObjectBase.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Documented\YYRValue\YYRValue.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Plugins\YYTKEvent\YYTKEvent.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Structures\Undocumented\YYVAR\YYVAR.hpp">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="MyHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
