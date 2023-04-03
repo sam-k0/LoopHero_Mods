@@ -34,7 +34,7 @@ DWORD WINAPI Controls(HINSTANCE hModule)
     while (true)
     {
         Sleep(50);
-        if (GetAsyncKeyState(VK_NUMPAD0))
+        if (GetAsyncKeyState(VK_F11))
         {
             EnumWindows(EnumWindowsProcMy, GetCurrentProcessId());
             Sleep(300);
