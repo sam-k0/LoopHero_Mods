@@ -9,6 +9,8 @@
 #include <iterator>
 #define _CRT_SECURE_NO_WARNINGS
 
+#define NODEBUG
+
  // Add all event names to the vector without duplicates
     /*
     My::AddToVectorNoDuplicates(codeObj->i_pName, &codeEventNames);
@@ -79,7 +81,9 @@ DllExport YYTKStatus PluginEntry(
     YYTKPlugin* PluginObject // A pointer to the dedicated plugin object
 )
 {
-    My::Print("Hello!");
+    My::Print("To activate the borderless window, go to Settings->Fullscreen!");
+    My::Print("The fullscreen button will now make the window borderless.");
+    My::Print("Tip: To get borderless fullscreen, use the 'windowed' button options. (Windowed x 3 button)", CLR_GOLD);
 
     gThisPlugin = PluginObject;
     gThisPlugin->PluginUnload = PluginUnload;
@@ -95,7 +99,7 @@ DllExport YYTKStatus PluginEntry(
     // Set-up buffers.
     return YYTK_OK; // Successful PluginEntry.
 }
-
+#ifndef NODEBUG
 DWORD WINAPI Menu(HINSTANCE hModule)
 {
     while (true)
@@ -115,6 +119,7 @@ DWORD WINAPI Menu(HINSTANCE hModule)
         }
     }
 }
+#endif
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -124,8 +129,10 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
+#ifndef NODEBUG
         DllHandle = hModule;
         CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Menu, NULL, 0, NULL); // For the input
+#endif
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:
