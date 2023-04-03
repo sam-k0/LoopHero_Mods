@@ -20,13 +20,12 @@ where `Loop Hero.exe` resides.<br>
 │   ├── mod dlls go here!
 │   └── BorderlessHero.dll
 └── *other game files*
-
+```
 # Controls
 ## Borderless Hero (Borderless window mod)
 - Press F11 to make the window borderless.
 Tip: To change back to bordered, press the "Windowed x2" or "Windowed x3" button
 
-```
 # Credits
 
 For loading the mods, I use YellowAfterlife's TinyModInjector.<br>
