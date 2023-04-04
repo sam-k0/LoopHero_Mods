@@ -5,7 +5,8 @@
 HINSTANCE DllHandle; // Self modhandle
 
 HWND g_HWND = NULL;
-
+HHOOK wndHook = NULL;
+LONG_PTR style = NULL;
 // Convert a std::string to an LPCWSTR
 LPCWSTR StringToLPCWSTR(const std::string& s)
 {
@@ -45,6 +46,11 @@ void ShowNotification(HWND hWnd, std::string szTip, std::string szInfoTitle, std
     Shell_NotifyIcon(NIM_MODIFY, &nid);
 }
 
+void SayHi()
+{
+    MessageBoxA(NULL, "Hi", "Hi", 0);
+}
+
 void SetWindowBorderless(HWND window_handle)
 {
     LONG lStyle = GetWindowLong(window_handle, GWL_STYLE);
@@ -72,6 +78,18 @@ void SetWindowFullscreen(HWND window_handle)
     SetWindowPos(window_handle, HWND_TOP, 0, 0, cxScreen, cyScreen, SWP_SHOWWINDOW);
 }
 
+void EnableMaximize()
+{
+    style = GetWindowLongPtr(g_HWND, GWL_STYLE);
+    style &= ~WS_DISABLED;      // Remove the WS_DISABLED style
+    style |= WS_MAXIMIZEBOX;    // Add the WS_MAXIMIZEBOX style
+    SetWindowLongPtr(g_HWND, GWL_STYLE, style);
+
+    // activate btn
+    HMENU hmenu = GetSystemMenu(g_HWND, FALSE);
+    EnableMenuItem(hmenu, SC_MAXIMIZE, MF_BYCOMMAND | MF_ENABLED);
+}
+
 BOOL CALLBACK EnumWindowsProcMy(HWND hwnd, LPARAM lParam)
 {
     DWORD lpdwProcessId;
@@ -91,11 +109,11 @@ void RedrawWindow(HWND hwnd)
 
 DWORD WINAPI Controls(HINSTANCE hModule)
 {
-    EnumWindows(EnumWindowsProcMy, GetCurrentProcessId());
-
     while (true)
     {
         Sleep(50);
+        EnableMaximize();
+
         if (GetAsyncKeyState(VK_F11))
         {
             SetWindowFullscreen(g_HWND);
@@ -107,6 +125,30 @@ DWORD WINAPI Controls(HINSTANCE hModule)
     }
 }
 
+LRESULT CALLBACK HookProc(int code, WPARAM wParam, LPARAM lParam)
+{
+    if (code == HC_ACTION)
+    {
+        CWPSTRUCT* msg = reinterpret_cast<CWPSTRUCT*>(lParam);
+        HWND hwnd = msg->hwnd;
+        switch (msg->message)
+        {
+        case WM_SYSCOMMAND:
+
+            if (msg->wParam == SC_MAXIMIZE)
+            {
+                SetWindowFullscreen(g_HWND);
+                SetWindowBorderless(g_HWND);
+                RedrawWindow(g_HWND);
+                ShowNotification(g_HWND, "Loop Hero", "Changed Window", "Window set to borderless!");
+            }
+            break;
+            // Handle other messages here
+        }
+    }
+    return CallNextHookEx(NULL, code, wParam, lParam);
+}
+
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
@@ -116,8 +158,12 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     {
     case DLL_PROCESS_ATTACH:
         DllHandle = hModule;
+
+        EnumWindows(EnumWindowsProcMy, GetCurrentProcessId()); // Initialize gHwnd
+
         CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Controls, NULL, 0, NULL); // For the input
-        
+
+        wndHook = SetWindowsHookEx(WH_CALLWNDPROC, HookProc, NULL, GetCurrentThreadId()); // Hooking the menu messages
 
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
@@ -126,4 +172,5 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     }
     return TRUE;
 }
+
 

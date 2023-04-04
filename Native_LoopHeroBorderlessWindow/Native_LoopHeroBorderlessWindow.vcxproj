@@ -97,7 +97,9 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y "$(SolutionDir)Release\Native_LoopHeroBorderlessWindow.dll" "E:\09_spiele\LoopHero\NativeMods"</Command>
+      <Command>rename "$(SolutionDir)Release\Native_LoopHeroBorderlessWindow.dll" "Borderless Hero.dll"
+xcopy /Y "$(SolutionDir)Release\Borderless Hero.dll" "E:\09_spiele\LoopHero\NativeMods"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -119,7 +121,9 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y "$(SolutionDir)Release\Native_LoopHeroBorderlessWindow.dll" "E:\09_spiele\LoopHero\NativeMods"</Command>
+      <Command>rename "$(SolutionDir)Release\Native_LoopHeroBorderlessWindow.dll" "Borderless Hero.dll"
+xcopy /Y "$(SolutionDir)Release\Borderless Hero.dll" "E:\09_spiele\LoopHero\NativeMods"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -137,7 +141,9 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y "$(SolutionDir)Release\Native_LoopHeroBorderlessWindow.dll" "E:\09_spiele\LoopHero\NativeMods"</Command>
+      <Command>rename "$(SolutionDir)Release\Native_LoopHeroBorderlessWindow.dll" "Borderless Hero.dll"
+xcopy /Y "$(SolutionDir)Release\Borderless Hero.dll" "E:\09_spiele\LoopHero\NativeMods"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -159,7 +165,9 @@
       <EnableUAC>false</EnableUAC>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y "$(SolutionDir)Release\Native_LoopHeroBorderlessWindow.dll" "E:\09_spiele\LoopHero\NativeMods"</Command>
+      <Command>rename "$(SolutionDir)Release\Native_LoopHeroBorderlessWindow.dll" "Borderless Hero.dll"
+xcopy /Y "$(SolutionDir)Release\Borderless Hero.dll" "E:\09_spiele\LoopHero\NativeMods"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
