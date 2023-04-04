@@ -23,8 +23,15 @@ where `Loop Hero.exe` resides.<br>
 ```
 # Controls
 ## Borderless Hero (Borderless window mod)
-- Press F11 to make the window borderless.
-Tip: To change back to bordered, press the "Windowed x2" or "Windowed x3" button
+![grafik](https://user-images.githubusercontent.com/56673835/229794941-73488396-fcb6-4894-8698-a7bfeba6b8e8.png)
+<br>
+The mod enables the "maximize button" of the game window ^^
+- Click the "maximize" button of the window to enable borderless fullscreen (Or press F11 on your keyboard)
+- To change back to normal fullscreen:
+  - 1. Click "fullscreen"
+  - 2. Click "window x2"
+
+![grafik](https://user-images.githubusercontent.com/56673835/229796072-790944ee-ef0e-457e-ad41-eee2d4c77832.png)
 
 # Credits
 
