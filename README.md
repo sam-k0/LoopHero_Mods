@@ -33,6 +33,14 @@ The mod enables the "maximize button" of the game window ^^
 
 ![grafik](https://user-images.githubusercontent.com/56673835/229796072-790944ee-ef0e-457e-ad41-eee2d4c77832.png)
 
+### The magic
+
+First of all, Loop Hero natively deactivates the maximize button, which I re-enabled with the mod.<br>
+I then hook the Maximize-Window-Event to trigger my "Make the window borderless fullscreen"-magic.<br>
+The mod gets loaded automatically by using "DLL-Hijacking", the game thinks the `dinput8.dll` is the real one,<br>but all it does is load the DLLs inside the "Native Mods" folder, and then forward all calls to the original DLL.<br>
+
+
+
 # Credits
 
 For loading the mods, I use YellowAfterlife's TinyModInjector.<br>
