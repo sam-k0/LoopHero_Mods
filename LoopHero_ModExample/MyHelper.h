@@ -20,6 +20,8 @@ CallbackAttributes_t* callbackAttr = nullptr;
 std::vector<std::string> codeEventNames; // holds all strings of code events that got triggered
 int gDumpNum = 0;
 
+
+
 namespace My {
     void Print(std::string s, Color c = CLR_DEFAULT)
     {
