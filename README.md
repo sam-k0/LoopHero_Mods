@@ -2,27 +2,78 @@
 
 This repo contains my mods for Loop Hero.
 
-Right now, only the "Borderless Window" mod works, <br>
-as YYToolkit (ver. 2.1.2 as of 2023/04/03) crashes when entering the battle room.<br>
+# Installation of the modloader
 
-# Installation
+Go to the Releases tab on the right and download your desired mod.
 
-Download the latest release from the release tab on the right --><br>
-Unzip the .zip file so the contents are in the game directory<br>
-where `Loop Hero.exe` resides.<br>
+Go to <br>
+https://github.com/sam-k0/YYToolkit_LoopHero/releases/ <br>
+and download the modified version of YYTK (The modding framework / Modloader)
+- Download "YYToolkit.dll"
+- Download "dinput8.dll"
+- Create folders like shown in the graphic here:
+  - Move "dinput8.dll" into your main game directory (where the .exe is)
+  - Create "NativeMods" folder and put "YYToolkit.dll" there
+  - Create "autoexec" folder, this is where you'll put the mods that depend on YYTK
+  
+### Your directory should look like this:
+```
+├── Loop Hero.exe
+├── data.win
+├── dinput8.dll            <-- the mod loader
+├── NativeMods/
+│   ├── YYToolkit.dll      <-- the mod framework
+│   └── *other mod files*
+├── autoexec/
+│   └── *other mod files*
+└── *other game files*
+```
+# Installation of the actual mods
+The total list of mods is here:<br>
+https://github.com/sam-k0/LoopHero_Mods/releases
 
+
+## Discord Presence mod
+This mod will display a status on your discord profile saying "Playing Loop Hero" and then depending if you're in camp, "In Camp" or "On Expedition"
+<br>
+**Download Instructions:**
+- Download the "Discord Presence"-release from above mentioned release page
+- Move the "discord-rpc.dll" into the main game directory
+- Move the "DiscordPresence.dll" into the "autoexec" folder
 ### Your directory should look like this:<br>
 ```
 ├── Loop Hero.exe
 ├── data.win
-├── dinput8.dll
+├── dinput8.dll            <-- the mod loader
+├── discord-rpc.dll        <-- ! This is the official discord api dll!
 ├── NativeMods/
-│   ├── mod dlls go here!
-│   └── BorderlessHero.dll
+│   ├── YYToolkit.dll      <-- the mod framework
+│   └── *other mod files*
+├── autoexec/
+│   ├── DiscordPresence.dll <-- The actual mod that calls the official discord dll
+│   └── *other mod files*
 └── *other game files*
 ```
-# Controls
+
+
 ## Borderless Hero (Borderless window mod)
+
+### Your directory should look like this:<br>
+! BorderlessHero is a native mod and doesn't depend on the YYToolkit, so make sure to move it to the "NativeMods" folder instead of the "autoexec" folder!
+
+```
+├── Loop Hero.exe
+├── data.win
+├── dinput8.dll            <-- the mod loader
+├── NativeMods/
+│   ├── YYToolkit.dll      <-- the mod framework
+│   ├── BorderlessHero.dll <-- the actual mod
+│   └── *other mod files*
+├── autoexec/
+│   └── *other mod files*
+└── *other game files*
+```
+
 ![grafik](https://user-images.githubusercontent.com/56673835/229794941-73488396-fcb6-4894-8698-a7bfeba6b8e8.png)
 <br>
 The mod enables the "maximize button" of the game window ^^
