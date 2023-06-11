@@ -9,16 +9,7 @@
 #include <iterator>
 #define _CRT_SECURE_NO_WARNINGS
 
-#define NODEBUG
-
- // Add all event names to the vector without duplicates
-    /*
-    My::AddToVectorNoDuplicates(codeObj->i_pName, &codeEventNames);
-    if (codeEventNames.size() > 400)
-    {
-        codeEventNames.clear();
-        My::Print("Clearing code event names due to excessive size.", CLR_RED);
-    }*/
+//#define NODEBUG
 
 
 
@@ -36,6 +27,9 @@ YYTKStatus my_callback_fn(YYTKCodeEvent* codeEvent, void*)
     CCode* codeObj = std::get<CCode*>(codeEvent->Arguments());
     CInstance* selfInst = std::get<0>(codeEvent->Arguments());
     CInstance* otherInst = std::get<1>(codeEvent->Arguments());
+
+
+    
 
     // If we have invalid data???
     if (!codeObj)
@@ -55,7 +49,6 @@ YYTKStatus my_callback_fn(YYTKCodeEvent* codeEvent, void*)
         YYRValue isFullscreen;
         CallBuiltin(isFullscreen, "window_get_fullscreen", selfInst, otherInst, {});
 
-        //if (static_cast<bool>(isFullscreen))
         {
             My::Print("Changing to Borderless");
             YYRValue result;
@@ -72,6 +65,10 @@ YYTKStatus my_callback_fn(YYTKCodeEvent* codeEvent, void*)
             SetWindowLong(window_handle, GWL_EXSTYLE, lExStyle);
             SetWindowPos(window_handle, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED | SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_NOOWNERZORDER);
         }
+    }
+    else if (My::StringHasSubstr(codeObj->i_pName, "gml_Room_rm_"))
+    {
+        My::AddToVectorNoDuplicates(codeObj->i_pName, &codeEventNames);
     }
 
    
