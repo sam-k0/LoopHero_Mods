@@ -96,3 +96,5 @@ The mod gets loaded automatically by using "DLL-Hijacking", the game thinks the 
 
 For loading the mods, I use YellowAfterlife's TinyModInjector.<br>
 Can be found [here](https://github.com/YAL-Game-Tools/TinyModInjector "github.com/YAL-Game-Tools/TinyModInjector").
+
+The used framework is obv YYTK. lol
