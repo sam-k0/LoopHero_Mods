@@ -14,6 +14,7 @@
 HINSTANCE DllHandle; // Self modhandle
 
 std::string gPluginName = "Discord Hero";
+std::string gVer = "2023.11.10";
 YYTKPlugin* gThisPlugin = nullptr;
 CallbackAttributes_t* callbackAttr = nullptr;
 
@@ -22,7 +23,7 @@ int gDumpNum = 0;
 
 
 
-namespace My {
+namespace Misc {
     void Print(std::string s, Color c = CLR_DEFAULT)
     {
         PrintMessage(c, (gPluginName + ": " + s).c_str());

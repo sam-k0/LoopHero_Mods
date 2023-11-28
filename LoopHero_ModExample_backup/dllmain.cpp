@@ -12,8 +12,6 @@
 //#define NODEBUG
 
 
-
-
 // Unload
 YYTKStatus PluginUnload()
 {

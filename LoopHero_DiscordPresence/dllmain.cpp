@@ -10,7 +10,6 @@
 #include "discord_rpc.h"
 #define _CRT_SECURE_NO_WARNINGS
 
-#define NODEBUG
 
 const char* APP_ID = "1117388622975471739";
 
@@ -36,7 +35,7 @@ YYTKStatus PluginUnload()
     return YYTK_OK;
 }
 
-YYTKStatus my_callback_fn(YYTKCodeEvent* codeEvent, void*)
+YYTKStatus CodeExecuteCallback(YYTKCodeEvent* codeEvent, void*)
 {
     CCode* codeObj = std::get<CCode*>(codeEvent->Arguments());
     CInstance* selfInst = std::get<0>(codeEvent->Arguments());
@@ -48,32 +47,71 @@ YYTKStatus my_callback_fn(YYTKCodeEvent* codeEvent, void*)
     if (!codeObj->i_pName)
         return YYTK_INVALIDARG;
 
+   
 
     // Original event
-    codeEvent->Call(selfInst, otherInst, codeObj, std::get<3>(codeEvent->Arguments()), std::get<4>(codeEvent->Arguments()));
-
+    // TODO: Find a way to dynamically check if core is present or nah
+    //codeEvent->Call(selfInst, otherInst, codeObj, std::get<3>(codeEvent->Arguments()), std::get<4>(codeEvent->Arguments()));
+    // alloc presence
+    DiscordRichPresence presence;
+    memset(&presence, 0, sizeof(presence));
+    bool update = false;
     
-    if (My::StringHasSubstr(codeObj->i_pName, "gml_Room_rm_camp_Create"))
+    /*
+        Check for room events
+        room names:
+            rm_titles - idk
+            rm_creater_dialog - idk
+            rm_priamidka - Honestly idk
+            rm_load  - Behind the scenes loading?
+            rm_intro - intro cutscene
+            rm_camp  - the camp
+            rm_tutor - the tutorial
+            rm_game - the game room
+            rm_cutscenes - probably for cutscenes
+            rm_music_maker - Music maker
+    */
+
+    if (Misc::StringHasSubstr(codeObj->i_pName, "gml_Room_rm_intro_Create"))
     {
-        My::Print("Entering camp...");
-        DiscordRichPresence presence;
-        memset(&presence, 0, sizeof(presence));
-        presence.state = "Playing";
-        presence.details = "In Camp";
-        presence.largeImageKey = "loop-hero-new-key-art-logo";
-        presence.largeImageText = "Loop Hero modded";
-        Discord_UpdatePresence(&presence);
+        Misc::Print("Entering intro...");
+        presence.state = "Introduction";
+        presence.details = "Cutscene";
+        update = true;
     }
-    else if(My::StringHasSubstr(codeObj->i_pName, "gml_Room_rm_game_Create"))
+    else
+    if (Misc::StringHasSubstr(codeObj->i_pName, "gml_Room_rm_camp_Create"))
     {
-        My::Print("Entering battle room");
-        DiscordRichPresence presence;
-        memset(&presence, 0, sizeof(presence));
+        Misc::Print("Entering camp...");
+        presence.state = "Playing";
+        presence.details = "In Camp";    
+        update = true;
+
+    }
+    else
+    if(Misc::StringHasSubstr(codeObj->i_pName, "gml_Room_rm_game_Create"))
+    {
+        Misc::Print("Entering battle room");
         presence.state = "Playing";
         presence.details = "On Expedition";
+        update = true;
+    }
+    else
+    if (Misc::StringHasSubstr(codeObj->i_pName, "gml_Room_rm_music_maker_Create"))
+    {
+        Misc::Print("Entering music maker");
+        presence.state = "Music Maker";
+        presence.details = "Vibing";
+        update = true;
+    }
+
+
+    if (update)
+    {
         presence.largeImageKey = "loop-hero-new-key-art-logo";
         presence.largeImageText = "Loop Hero modded";
         Discord_UpdatePresence(&presence);
+        update = false;
     }
    
     return YYTK_OK;
@@ -85,7 +123,7 @@ DllExport YYTKStatus PluginEntry(
     YYTKPlugin* PluginObject // A pointer to the dedicated plugin object
 )
 {
-    My::Print("Loading RPC");
+    Misc::Print("Loading RPC - ver " + gVer);
 
     gThisPlugin = PluginObject;
     gThisPlugin->PluginUnload = PluginUnload;
@@ -93,7 +131,7 @@ DllExport YYTKStatus PluginEntry(
    PluginAttributes_t* pluginAttributes = nullptr;
     if (PmGetPluginAttributes(gThisPlugin, pluginAttributes) == YYTK_OK)
     {
-        PmCreateCallback(pluginAttributes, callbackAttr, reinterpret_cast<FNEventHandler>(my_callback_fn), EVT_CODE_EXECUTE, nullptr);
+        PmCreateCallback(pluginAttributes, callbackAttr, reinterpret_cast<FNEventHandler>(CodeExecuteCallback), EVT_CODE_EXECUTE, nullptr);
     }
 
     DiscordEventHandlers handlers;
@@ -104,32 +142,18 @@ DllExport YYTKStatus PluginEntry(
     // Initialize the Discord RPC
     Discord_Initialize(APP_ID, &handlers, 1, NULL);
 
+    // Set to default presence
+    DiscordRichPresence presence;
+    memset(&presence, 0, sizeof(presence));
+    presence.details = "Main Menu";
+    presence.state = "";
+    presence.largeImageKey = "loop-hero-new-key-art-logo";
+    presence.largeImageText = "Loop Hero modded";
+    Discord_UpdatePresence(&presence);
 
-    // Initialize the plugin, set callbacks inside the PluginObject.
-    // Set-up buffers.
     return YYTK_OK; // Successful PluginEntry.
 }
-#ifndef NODEBUG
-DWORD WINAPI Menu(HINSTANCE hModule)
-{
-    while (true)
-    {
-        Sleep(50);
-        if (GetAsyncKeyState(VK_NUMPAD0))
-        {
-            My::Print("Dumping to file!");
-            My::VectorToFile(&codeEventNames);
-            Sleep(300);
-        }
-        if (GetAsyncKeyState(VK_NUMPAD1))
-        {
-            My::Print("Resetting event vector");
-            codeEventNames.clear();
-            Sleep(300);
-        }
-    }
-}
-#endif
+
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -139,10 +163,6 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-#ifndef NODEBUG
-        DllHandle = hModule;
-        CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Menu, NULL, 0, NULL); // For the input
-#endif
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:
