@@ -29,11 +29,13 @@ and download the modified version of YYTK (The modding framework / Modloader)
 └── *other game files*
 ```
 # Installation of the actual mods
-The total list of mods is here:<br>
-https://github.com/sam-k0/LoopHero_Mods/releases
+
+You can find a list of mods developed by me [here](https://github.com/sam-k0/LoopHero_Mods/blob/master/mods.md).
+
+The contents of this page below (install instructions for Discord presence and borderless mod) are kept for legacy reasons.
 
 
-## Discord Presence mod
+### Discord Presence mod
 This mod will display a status on your discord profile saying "Playing Loop Hero" and then depending if you're in camp, "In Camp" or "On Expedition"
 <br>
 **Download Instructions:**
