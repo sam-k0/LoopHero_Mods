@@ -58,6 +58,7 @@ Unlocks the hidden *Music Maker*.<br>
   <summary>Details</summary>
     This unlocks the probably least well known game feature,
     a music maker "level" hidden in the games files, inaccessible by default.
+    Pressing [F1] key in main menu will take you there.
 </details>
 
 [Download](https://github.com/sam-k0/LoopHero-MusicMaker/releases)
