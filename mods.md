@@ -7,6 +7,20 @@ All mods follow more or less the same [install procedure](https://github.com/sam
 # Mods
 Make sure you installed the [core mod](https://github.com/sam-k0/LoopHeroCallbackCore) before trying to run the game with the below listed mods.
 
+## Chroma Hero (Custom Color Mod)
+Adds the option to choose a custom color for the hero on the map<br>
+<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
+<details>
+  <summary>Details</summary>
+  Go to the settings menu where you normally choose your color and click the mini-preview once. The picker will appear. Change Color and Brightness using the arrow keys:
+
+  - Up / Down arrow: Cycle color
+  - Left / Right: Change brightness
+
+</details>
+
+[Download](https://github.com/sam-k0/Chroma-Hero/releases/)
+
 ## Discord Presence for Loop Hero
 Adds support for Discord Rich Presence to the game<br>
 <span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
@@ -53,7 +67,7 @@ Fixes lags caused by a bottleneck between CPU <-> GPU<br>
 
 ## Music Maker Unlocked
 Unlocks the hidden *Music Maker*.<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.3``
+<span style="color: green;">⚙ supported by </span>``≥ 2.1.3``
 <details>
   <summary>Details</summary>
     This unlocks the probably least well known game feature,
@@ -65,7 +79,7 @@ Unlocks the hidden *Music Maker*.<br>
 
 ## Pi Calculator
 Calculates pi (the funny 3.1415 number) while you play.<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.3``
+<span style="color: green;">⚙ supported by </span>``≥ 2.1.3``
 <details>
   <summary>Details</summary>
     Does what the title says. Pretty useless but if you like funny numbers then this is for you.
