@@ -9,7 +9,7 @@ Make sure you installed the [core mod](https://github.com/sam-k0/LoopHeroCallbac
 
 ## Discord Presence for Loop Hero
 Adds support for Discord Rich Presence to the game<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.3``
+<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
 <details>
   <summary>Details</summary>
   This mod will display a status on your discord profile saying "Playing Loop Hero" and then depending if you're in camp, "In Camp" or "On Expedition".
