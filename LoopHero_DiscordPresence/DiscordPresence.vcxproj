@@ -169,9 +169,9 @@
     <ClCompile Include="SDK\Structures\Documented\CDynamicArray\CDynamicArray.cpp" />
     <ClCompile Include="SDK\Structures\Documented\RefThing\RefThing.cpp" />
     <ClCompile Include="SDK\Structures\Documented\YYRValue\YYRValue.cpp" />
-    <ClCompile Include="TKEventManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LHCore.h" />
     <ClInclude Include="MyHelper.h" />
     <ClInclude Include="SDK\Enums\Enums.hpp" />
     <ClInclude Include="SDK\FwdDecls\FwdDecls.hpp" />
@@ -194,7 +194,6 @@
     <ClInclude Include="SDK\Structures\Undocumented\YYGMLFuncs\YYGMLFuncs.hpp" />
     <ClInclude Include="SDK\Structures\Undocumented\YYObjectBase\YYObjectBase.hpp" />
     <ClInclude Include="SDK\Structures\Undocumented\YYVAR\YYVAR.hpp" />
-    <ClInclude Include="TKEventManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,6 +3,7 @@
 
 // YYTK is in this now
 #include "MyHelper.h"
+#include "LHCore.h"
 
 // Plugin functionality
 #include <fstream>
@@ -117,18 +118,9 @@ YYTKStatus CodeExecuteCallback(YYTKCodeEvent* codeEvent, void*)
     return YYTK_OK;
 }
 
-
-// Entry
-DllExport YYTKStatus PluginEntry(
-    YYTKPlugin* PluginObject // A pointer to the dedicated plugin object
-)
+bool CoreFoundCallback() // set hooks
 {
-    Misc::Print("Loading RPC - ver " + gVer);
-
-    gThisPlugin = PluginObject;
-    gThisPlugin->PluginUnload = PluginUnload;
-
-   PluginAttributes_t* pluginAttributes = nullptr;
+    PluginAttributes_t* pluginAttributes = nullptr;
     if (PmGetPluginAttributes(gThisPlugin, pluginAttributes) == YYTK_OK)
     {
         PmCreateCallback(pluginAttributes, callbackAttr, reinterpret_cast<FNEventHandler>(CodeExecuteCallback), EVT_CODE_EXECUTE, nullptr);
@@ -150,6 +142,28 @@ DllExport YYTKStatus PluginEntry(
     presence.largeImageKey = "loop-hero-new-key-art-logo";
     presence.largeImageText = "Loop Hero modded";
     Discord_UpdatePresence(&presence);
+    
+    return true;
+}
+
+// Entry
+DllExport YYTKStatus PluginEntry(
+    YYTKPlugin* PluginObject // A pointer to the dedicated plugin object
+)
+{
+   
+
+    Misc::Print("Loading RPC - ver " + gVer);
+
+    gThisPlugin = PluginObject;
+    gThisPlugin->PluginUnload = PluginUnload;
+
+    // Get info
+    LHCore::ResolveCoreParams_t params;
+    params.plugin = gThisPlugin;
+    params.callback = CoreFoundCallback;
+
+    CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)LHCore::ResolveCore, (LPVOID)&params, 0, NULL); // Check if the Callback Core Module is loaded, and wait for it to load
 
     return YYTK_OK; // Successful PluginEntry.
 }

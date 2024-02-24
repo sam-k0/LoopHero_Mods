@@ -13,8 +13,8 @@
 
 HINSTANCE DllHandle; // Self modhandle
 
-std::string gPluginName = "Discord Hero";
-std::string gVer = "2023.11.10";
+std::string gPluginName = "sam-k0.DiscordHero.yytk";
+std::string gVer = "2024.02.24";
 YYTKPlugin* gThisPlugin = nullptr;
 CallbackAttributes_t* callbackAttr = nullptr;
 

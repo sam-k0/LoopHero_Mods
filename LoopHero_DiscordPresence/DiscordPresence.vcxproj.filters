@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="TKEventManager.cpp" />
     <ClCompile Include="SDK\Plugins\API Definitions\APIDefs.cpp">
       <Filter>YYTK</Filter>
     </ClCompile>
@@ -21,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyHelper.h" />
-    <ClInclude Include="TKEventManager.h" />
     <ClInclude Include="SDK\Plugins\API Definitions\APIDefs.hpp">
       <Filter>YYTK</Filter>
     </ClInclude>
@@ -85,6 +83,7 @@
     <ClInclude Include="SDK\Structures\Undocumented\YYVAR\YYVAR.hpp">
       <Filter>YYTK</Filter>
     </ClInclude>
+    <ClInclude Include="LHCore.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="YYTK">
