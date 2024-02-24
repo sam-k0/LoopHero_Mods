@@ -37,16 +37,6 @@ HWND g_HWND = NULL;
 HHOOK wndHook = NULL;
 LONG_PTR style = NULL;
 
-typedef long(__stdcall* present)(IDXGISwapChain*, UINT, UINT);
-present p_present;
-present p_present_target;
-WNDPROC oWndProc;
-bool init = false;
-HWND window = NULL;
-ID3D11Device* p_device = NULL;
-ID3D11DeviceContext* p_context = NULL;
-ID3D11RenderTargetView* mainRenderTargetView = NULL;
-
 DWORD WINAPI Controls(HINSTANCE hModule);
 LRESULT CALLBACK HookProc(int code, WPARAM wParam, LPARAM lParam);
 
@@ -65,74 +55,6 @@ LPCWSTR StringToLPCWSTR(const std::string& s)
     return wideStr;
 }
 
-#pragma region DX11Hook
-
-bool get_present_pointer()
-{
-    DXGI_SWAP_CHAIN_DESC sd;
-    ZeroMemory(&sd, sizeof(sd));
-    sd.BufferCount = 2;
-    sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-    sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-    sd.OutputWindow = GetForegroundWindow();
-    sd.SampleDesc.Count = 1;
-    sd.Windowed = TRUE;
-    sd.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
-
-    IDXGISwapChain* swap_chain;
-    ID3D11Device* device;
-
-    const D3D_FEATURE_LEVEL feature_levels[] = { D3D_FEATURE_LEVEL_11_0, D3D_FEATURE_LEVEL_10_0, };
-    if (D3D11CreateDeviceAndSwapChain(
-        NULL,
-        D3D_DRIVER_TYPE_HARDWARE,
-        NULL,
-        0,
-        feature_levels,
-        2,
-        D3D11_SDK_VERSION,
-        &sd,
-        &swap_chain,
-        &device,
-        nullptr,
-        nullptr) == S_OK)
-    {
-        void** p_vtable = *reinterpret_cast<void***>(swap_chain);
-        swap_chain->Release();
-        device->Release();
-        //context->Release();
-        p_present_target = (present)p_vtable[8];
-        return true;
-    }
-    return false;
-}
-
-static long __stdcall detour_present(IDXGISwapChain* p_swap_chain, UINT sync_interval, UINT flags) {
-    if (!init) {
-        if (SUCCEEDED(p_swap_chain->GetDevice(__uuidof(ID3D11Device), (void**)&p_device)))
-        {
-            p_device->GetImmediateContext(&p_context);
-            DXGI_SWAP_CHAIN_DESC sd;
-            p_swap_chain->GetDesc(&sd);
-            window = sd.OutputWindow;
-            ID3D11Texture2D* pBackBuffer;
-            p_swap_chain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
-            p_device->CreateRenderTargetView(pBackBuffer, NULL, &mainRenderTargetView);
-            pBackBuffer->Release();
-
-
-
-            init = true;
-        }
-        else
-            return p_present(p_swap_chain, sync_interval, flags);
-    }
-
-    p_context->OMSetRenderTargets(1, &mainRenderTargetView, NULL);
-    return p_present(p_swap_chain, sync_interval, flags);
-}
-
-#pragma endregion DX11Hook
 
 void SetWindowBorderless(HWND window_handle)
 {
@@ -173,17 +95,6 @@ void EnableMaximize()
     EnableMenuItem(hmenu, SC_MAXIMIZE, MF_BYCOMMAND | MF_ENABLED);
 }
 
-BOOL CALLBACK EnumWindowsProcMy(HWND hwnd, LPARAM lParam)
-{
-    DWORD lpdwProcessId;
-    GetWindowThreadProcessId(hwnd, &lpdwProcessId);
-    if (lpdwProcessId == lParam)
-    {
-        g_HWND = hwnd;
-        return FALSE;
-    }
-    return TRUE;
-}
 
 void RedrawWindow(HWND hwnd)
 {
@@ -194,19 +105,10 @@ void RedrawWindow(HWND hwnd)
 bool CoreFoundCallback() // This function is ran once the core is resolved
                          // In this case, we want to wait with registering code callback until the core has registered itself to ensure safe calling
 {
-
-    //EnumWindows(EnumWindowsProcMy, GetCurrentProcessId()); // Initialize gHwnd
-
-    // Overwrite window handle
-    //YYRValue winHwnd = Misc::CallBuiltin("window_handle", nullptr, nullptr, {});
-    //const char* c = winHwnd;
-    //g_HWND = (HWND)c;
-
     g_HWND = FindWindowA(NULL, "LOOP HERO 1.154 (win)");
 
     CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Controls, NULL, 0, NULL); // For the input
 
-    wndHook = SetWindowsHookEx(WH_CALLWNDPROC, HookProc, NULL, GetCurrentThreadId()); // Hooking the menu messages
     return true;
 }
 
@@ -241,7 +143,6 @@ LRESULT CALLBACK HookProc(int code, WPARAM wParam, LPARAM lParam)
                 SetWindowFullscreen(g_HWND);
                 SetWindowBorderless(g_HWND);
                 RedrawWindow(g_HWND);
-                
             }
             break;
             // Handle other messages here
@@ -252,25 +153,6 @@ LRESULT CALLBACK HookProc(int code, WPARAM wParam, LPARAM lParam)
 
 DWORD WINAPI Controls(HINSTANCE hModule)
 {
-    if (!get_present_pointer())
-    {
-        return 1;
-    }
-
-    MH_STATUS status = MH_Initialize();
-    if (status != MH_OK)
-    {
-        return 1;
-    }
-
-    if (MH_CreateHook(reinterpret_cast<void**>(p_present_target), &detour_present, reinterpret_cast<void**>(&p_present)) != MH_OK) {
-        return 1;
-    }
-
-    if (MH_EnableHook(p_present_target) != MH_OK) {
-        return 1;
-    }
-
     while (true)
     {
         Sleep(50);
@@ -278,17 +160,11 @@ DWORD WINAPI Controls(HINSTANCE hModule)
 
         if (GetAsyncKeyState(VK_F11))
         {
-            SetWindowFullscreen(g_HWND);
+            //SetWindowFullscreen(g_HWND);
             SetWindowBorderless(g_HWND);
             RedrawWindow(g_HWND);
             Sleep(300);
         }
-        if (GetAsyncKeyState(VK_F10))
-        {
-            //PatchGameVersion();
-            Sleep(300);
-        }
-
     }
 }
 
@@ -302,6 +178,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     {
     case DLL_PROCESS_ATTACH:
         DllHandle = hModule; // save our module handle
+        wndHook = SetWindowsHookEx(WH_CALLWNDPROC, HookProc, NULL, GetCurrentThreadId()); // Hooking the menu messages
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:
