@@ -4,8 +4,19 @@ A list of all mods made by me is shown below.<br>
 You can click on the little arrow (⮞) to see details. <br>
 The (⚙) denotes the required modloader (`YYTK for Loop Hero`) framework version, **not** the `YYTK` version.<br>
 All mods follow more or less the same [install procedure](https://github.com/sam-k0/LoopHero_Mods).
-# Mods
+# Prerequisites
+Install the `YYTK for Loop Hero` from [here](https://github.com/sam-k0/YYToolkit_LoopHero/releases). Follow the instructions from above listed `install procedure`.
+
 Make sure you installed the [core mod](https://github.com/sam-k0/LoopHeroCallbackCore) before trying to run the game with the below listed mods.
+
+
+## Core Mod (Callback Core)
+You **need** this mod installed. The other mods depend on this and not installing it will cause the other mods to not work.<br>
+<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
+<details>
+  <summary>Details</summary>
+  Go to the camp, open the settings menu and click on the "mods" button to manage mods.
+</details>
 
 ## Chroma Hero (Custom Color Mod)
 Adds the option to choose a custom color for the hero on the map<br>
