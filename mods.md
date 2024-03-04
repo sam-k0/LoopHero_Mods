@@ -24,6 +24,7 @@ It will look something like this:
 │   └── Loop Hero Callback Core.dll <-- the callback core / core mod
 └── *other game files*
 ```
+If you download a mod that uses the `Assets` folder, create it also in the game directory and put all contents like jpg files there.
 
 ## Core Mod (Callback Core)
 You **need** this mod installed. The other mods depend on this and not installing it will cause the other mods to not work.<br>
