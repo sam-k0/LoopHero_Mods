@@ -4,11 +4,26 @@ A list of all mods made by me is shown below.<br>
 You can click on the little arrow (⮞) to see details. <br>
 The (⚙) denotes the required modloader (`YYTK for Loop Hero`) framework version, **not** the `YYTK` version.<br>
 All mods follow more or less the same [install procedure](https://github.com/sam-k0/LoopHero_Mods).
-# Prerequisites
-Install the `YYTK for Loop Hero` from [here](https://github.com/sam-k0/YYToolkit_LoopHero/releases). Follow the instructions from above listed `install procedure`.
+# Quick install overview
+Install the `YYTK for Loop Hero` from [here](https://github.com/sam-k0/YYToolkit_LoopHero/releases).
+You need to download both `dlls`, `YYToolkit.dll` and `dinput8.dll`, and place `dinput8.dll` in the same folder as the game executable.
+For more info on why I use this, you can read this cool guide here [here](https://github.com/YAL-Game-Tools/TinyModInjector).
+For the `YYToolkit.dll`, make a new directory called `NativeMods` and put it there.
 
-Make sure you installed the [core mod](https://github.com/sam-k0/LoopHeroCallbackCore) before trying to run the game with the below listed mods.
+Next, install the [core callback mod](https://github.com/sam-k0/LoopHeroCallbackCore) before trying to run the game with the below listed mods.
+After downloading, create a new directory called `autoexec` and put it there.
+It will look something like this: 
 
+```
+├── Loop Hero.exe          <-- the game executable
+├── data.win
+├── dinput8.dll            <-- the mod injector (makes the game load the mod framework), loads dll files in the "NativeMods" folder
+├── NativeMods/
+│   └── YYToolkit.dll      <-- the mod framework (Loads the actual mods)
+├── autoexec/              <-- the folder where you put mods
+│   └── Loop Hero Callback Core.dll <-- the callback core / core mod
+└── *other game files*
+```
 
 ## Core Mod (Callback Core)
 You **need** this mod installed. The other mods depend on this and not installing it will cause the other mods to not work.<br>
