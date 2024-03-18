@@ -7,8 +7,9 @@ All mods follow more or less the same [install procedure](https://github.com/sam
 # Prerequisites
 Install the `YYTK for Loop Hero` from [here](https://github.com/sam-k0/YYToolkit_LoopHero/releases). Follow the instructions from above listed `install procedure`.
 
-Make sure you installed the [core mod](https://github.com/sam-k0/LoopHeroCallbackCore) before trying to run the game with the below listed mods.
+Make sure you installed the [core library mod (LoopHeroCallbackCore.dll)](https://github.com/sam-k0/LoopHeroCallbackCore) before trying to run the game with the below listed mods.
 
+→ If you are using a SteamDeck (Linux) you need to follow these extra steps [to get proton recognize the dinput8.dll](https://www.reddit.com/r/linux_gaming/comments/y08u34/comment/irqlpkr/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button).
 
 ## Core Mod (Callback Core)
 You **need** this mod installed. The other mods depend on this and not installing it will cause the other mods to not work.<br>
