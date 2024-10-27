@@ -37,6 +37,19 @@ You **need** this mod installed. The other mods depend on this and not installin
   Go to the camp, open the settings menu and click on the "mods" button to manage mods.
 </details>
 
+
+## BattleInfo 
+Displays extended information during battle<br>
+<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
+<details>
+  <summary>Details</summary>
+  Displays more detailed information for enemies during battle.
+  Configuration can be changed in `options.ini` file.
+
+</details>
+
+[Download](https://github.com/sam-k0/LoopHero-BattleInfo/releases)
+
 ## Chroma Hero (Custom Color Mod)
 Adds the option to choose a custom color for the hero on the map<br>
 <span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
