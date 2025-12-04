@@ -37,6 +37,16 @@ You **need** this mod installed. The other mods depend on this and not installin
   Go to the camp, open the settings menu and click on the "mods" button to manage mods.
 </details>
 
+## Snowy Hero 
+Adds a cozy snow effect to the game<br>
+<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
+<details>
+  <summary>Details</summary>
+  Does what the captions says. Works well with the winter hero asset pack
+
+</details>
+
+[Download](https://github.com/sam-k0/LoopHero-Snow/releases)
 
 ## BattleInfo 
 Displays extended information during battle<br>
