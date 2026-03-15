@@ -120,12 +120,12 @@ Fixes lags caused by a bottleneck between CPU <-> GPU<br>
 
 ## Music Maker Unlocked
 Unlocks the hidden *Music Maker*.<br>
-<span style="color: green;">⚙ supported by </span>``≥ 2.1.3``
+<span style="color: green;">⚙ supported by </span>``≥ 2.1.6``
 <details>
   <summary>Details</summary>
     This unlocks the probably least well known game feature,
     a music maker "level" hidden in the games files, inaccessible by default.
-    Pressing [F1] key in main menu will take you there.
+    There is a button in the main menu that will take you there.
 </details>
 
 [Download](https://github.com/sam-k0/LoopHero-MusicMaker/releases)
