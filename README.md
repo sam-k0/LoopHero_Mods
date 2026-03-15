@@ -5,6 +5,10 @@ This repo contains my mods for Loop Hero.
 > [!TIP]
 > You can find a list of mods developed by me [here](https://github.com/sam-k0/LoopHero_Mods/blob/master/mods.md).
 
+
+> [!TIP]
+> Some notes on developing LH-specific mods [here](https://github.com/sam-k0/LoopHero_Mods/blob/master/devnotes.md).
+
 # Installation of the modloader
 
 Go to the Releases tab on the right and download your desired mod.
