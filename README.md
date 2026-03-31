@@ -8,6 +8,7 @@ This repo contains my mods for Loop Hero.
 
 > [!TIP]
 > Some notes on developing LH-specific mods [here](https://github.com/sam-k0/LoopHero_Mods/blob/master/devnotes.md).
+> A template project for creating mods can be found [here](https://github.com/sam-k0/LoopHero-TemplateMod)
 
 # Installation of the modloader
 
