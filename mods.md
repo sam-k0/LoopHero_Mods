@@ -1,5 +1,8 @@
 # Available mods
 
+> [!NOTE]  
+> Interested in making mods? Check this repository: [here](https://github.com/sam-k0/LoopHero-TemplateMod)
+
 A list of all mods made by me is shown below.<br>
 You can click on the little arrow (⮞) to see details. <br>
 The (⚙) denotes the required modloader (`YYTK for Loop Hero`) framework version, **not** the `YYTK` version.<br>
