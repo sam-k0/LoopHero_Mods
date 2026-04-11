@@ -5,8 +5,9 @@
 
 A list of all mods made by me is shown below.<br>
 You can click on the little arrow (⮞) to see details. <br>
-The (⚙) denotes the required modloader (`YYTK for Loop Hero`) framework version, **not** the `YYTK` version.<br>
+
 All mods follow more or less the same [install procedure](https://github.com/sam-k0/LoopHero_Mods).
+
 # Quick install overview
 Install the `YYTK for Loop Hero` from [here](https://github.com/sam-k0/YYToolkit_LoopHero/releases).
 You need to download both `dlls`, `YYToolkit.dll` and `dinput8.dll`, and place `dinput8.dll` in the same folder as the game executable.
@@ -34,15 +35,14 @@ If you download a mod that uses the `Assets` folder, create it also in the game 
 
 ## Core Mod (Callback Core)
 You **need** this mod installed. The other mods depend on this and not installing it will cause the other mods to not work.<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
+ 
 <details>
   <summary>Details</summary>
-  Go to the camp, open the settings menu and click on the "mods" button to manage mods.
+  Dependency for all mods, manages callbacks and provides some shared utilities.
 </details>
 
 ## Snowy Hero 
 Adds a cozy snow effect to the game<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
 <details>
   <summary>Details</summary>
   Does what the captions says. Works well with the winter hero asset pack
@@ -53,7 +53,6 @@ Adds a cozy snow effect to the game<br>
 
 ## BattleInfo 
 Displays extended information during battle<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
 <details>
   <summary>Details</summary>
   Displays more detailed information for enemies during battle.
@@ -65,11 +64,10 @@ Displays extended information during battle<br>
 
 ## Chroma Hero (Custom Color Mod)
 Adds the option to choose a custom color for the hero on the map<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
+ 
 <details>
   <summary>Details</summary>
   Go to the settings menu where you normally choose your color and click the mini-preview once. The picker will appear. Change Color and Brightness using the arrow keys:
-
   - Up / Down arrow: Cycle color
   - Left / Right: Change brightness
 
@@ -79,17 +77,15 @@ Adds the option to choose a custom color for the hero on the map<br>
 
 ## Discord Presence for Loop Hero
 Adds support for Discord Rich Presence to the game<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
 <details>
   <summary>Details</summary>
   This mod will display a status on your discord profile saying "Playing Loop Hero" and then depending if you're in camp, "In Camp" or "On Expedition".
 </details>
 
-[Download](https://github.com/sam-k0/LoopHero_Mods/releases)
+[Download](https://github.com/sam-k0/LoopHero-DiscordPresence/releases/)
 
 ## Borderless Window (Borderless Hero)
 Allows to change the window to borderless fullscreen<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
 <details>
   <summary>Details</summary>
 Reactivates the "maximize" button on the game window, and clicking it will enable borderless fullscreen.
@@ -100,7 +96,6 @@ This can be really useful if you want to use your taskbar while playing in fulls
 
 ## Custom Sprite Replacer
 Lets you change game sprites (example included)<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
 <details>
   <summary>Details</summary>
 This mod allows you to replace sprites during runtime. Unlike replacing the sprites in the game files like when using [UndertaleModTool] for example, you don't need to back-up the game files before modifying them, as these don't get changed on your hard disk.
@@ -112,7 +107,6 @@ Also you can't break your game installation using this.
 
 ## Scheduler Fix
 Fixes lags caused by a bottleneck between CPU <-> GPU<br>
-<span style="color: cyan;">⚙ supported by </span>``≥ 2.1.6``
 <details>
   <summary>Details</summary>
     Fixes the problem described <a href="https://forum.gamemaker.io/index.php?threads/fps-issue-getting-wierd-fps-drops-sometimes.14564/">here</a>.
@@ -123,7 +117,6 @@ Fixes lags caused by a bottleneck between CPU <-> GPU<br>
 
 ## Music Maker Unlocked
 Unlocks the hidden *Music Maker*.<br>
-<span style="color: green;">⚙ supported by </span>``≥ 2.1.6``
 <details>
   <summary>Details</summary>
     This unlocks the probably least well known game feature,
@@ -135,7 +128,6 @@ Unlocks the hidden *Music Maker*.<br>
 
 ## Pi Calculator
 Calculates pi (the funny 3.1415 number) while you play.<br>
-<span style="color: green;">⚙ supported by </span>``≥ 2.1.3``
 <details>
   <summary>Details</summary>
     Does what the title says. Pretty useless but if you like funny numbers then this is for you.
