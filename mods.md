@@ -3,7 +3,7 @@
 > [!NOTE]  
 > Interested in making mods? Check this repository: [here](https://github.com/sam-k0/LoopHero-TemplateMod)
 
-A list of all mods made by me is shown below.<br>
+A list of all mods made by me is shown [below](#available-mods).<br>
 You can click on the little arrow (⮞) to see details. <br>
 
 All mods follow more or less the same [install procedure](https://github.com/sam-k0/LoopHero_Mods).
@@ -32,6 +32,8 @@ If you download a mod that uses the `Assets` folder, create it also in the game 
 
 → If you are using a SteamDeck (Linux) you need to follow these extra steps [to get proton recognize the dinput8.dll](https://www.reddit.com/r/linux_gaming/comments/y08u34/comment/irqlpkr/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button).
 
+<a id="available-mods"></a>
+# Available mods
 
 ## Core Mod (Callback Core)
 You **need** this mod installed. The other mods depend on this and not installing it will cause the other mods to not work.<br>
