@@ -41,6 +41,15 @@ You **need** this mod installed. The other mods depend on this and not installin
   Dependency for all mods, manages callbacks and provides some shared utilities.
 </details>
 
+## Explorer
+A must-have utility for datamining and investigating game behavior<br>
+<details>
+  <summary>Details</summary>
+  Adds various tools to the game, such as a (global & instance) variable explorer, running GML commands, profiling performance and dumping game events.
+</details>
+
+[Download](https://github.com/sam-k0/LoopHero-Explorer/releases)
+
 ## Snowy Hero 
 Adds a cozy snow effect to the game<br>
 <details>
