@@ -75,7 +75,7 @@ The event that is triggered when clicking a button is `gml_Object_o_base_button_
 Check if it is your button by comparing the instance ids:
 
 ```cpp
-if (selfInst->i_spriteindex == buttonRef.As<double>())
+if (selfInst->i_id == buttonRef.As<double>())
 {...}
 ```
 
