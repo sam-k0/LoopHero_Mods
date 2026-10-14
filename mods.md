@@ -6,13 +6,17 @@ You can click on the little arrow (⮞) to see details. <br>
 
 All mods follow more or less the same [install procedure](https://github.com/sam-k0/LoopHero_Mods).
 
+> [!IMPORTANT]
+> The current releases of all mods listed here require [YYTK for Loop Hero](https://github.com/sam-k0/YYToolkit_LoopHero/releases) **2026.10.14** or newer **and** [Callback Core](https://github.com/sam-k0/LoopHeroCallbackCore/releases) **2026.10.14** or newer, due to breaking changes.<br>
+> If you are updating from an older setup, replace `YYToolkit.dll`, `dinput8.dll` and `LoopHeroCallbackCore.dll` as well.
+
 # Quick install overview
-Install the `YYTK for Loop Hero` from [here](https://github.com/sam-k0/YYToolkit_LoopHero/releases).
+Install `YYTK for Loop Hero` (2026.10.14 or newer) from [here](https://github.com/sam-k0/YYToolkit_LoopHero/releases).
 You need to download both `dlls`, `YYToolkit.dll` and `dinput8.dll`, and place `dinput8.dll` in the same folder as the game executable.
 For more info on why I use this, you can read this cool guide here [here](https://github.com/YAL-Game-Tools/TinyModInjector).
 For the `YYToolkit.dll`, make a new directory called `NativeMods` and put it there.
 
-Next, install the [core callback mod](https://github.com/sam-k0/LoopHeroCallbackCore) before trying to run the game with the below listed mods.
+Next, install the [core callback mod](https://github.com/sam-k0/LoopHeroCallbackCore/releases) (2026.10.14 or newer) before trying to run the game with the below listed mods.
 After downloading, create a new directory called `autoexec` and put it there.
 It will look something like this: 
 
@@ -23,7 +27,7 @@ It will look something like this:
 ├── NativeMods/
 │   └── YYToolkit.dll      <-- the mod framework (Loads the actual mods)
 ├── autoexec/              <-- the folder where you put mods
-│   └── Loop Hero Callback Core.dll <-- the callback core / core mod
+│   └── LoopHeroCallbackCore.dll <-- the callback core / core mod
 └── *other game files*
 ```
 If you download a mod that uses the `Assets` folder, create it also in the game directory and put all contents like jpg files there.
@@ -39,7 +43,10 @@ You **need** this mod installed. The other mods depend on this and not installin
 <details>
   <summary>Details</summary>
   Dependency for all mods, manages callbacks and provides some shared utilities.
+  Requires YYTK for Loop Hero 2026.10.14 or newer.
 </details>
+
+[Download](https://github.com/sam-k0/LoopHeroCallbackCore/releases)
 
 ## Explorer
 A must-have utility for datamining and investigating game behavior<br>
