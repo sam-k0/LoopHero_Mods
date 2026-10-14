@@ -46,7 +46,7 @@ You **need** this mod installed. The other mods depend on this and not installin
   Requires YYTK for Loop Hero 2026.10.14 or newer.
 </details>
 
-[Download](https://github.com/sam-k0/LoopHeroCallbackCore/releases)
+[Download](https://github.com/sam-k0/LoopHeroCallbackCore/releases) [![Release](https://img.shields.io/github/v/release/sam-k0/LoopHeroCallbackCore)](https://github.com/sam-k0/LoopHeroCallbackCore/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/LoopHeroCallbackCore/total)](https://github.com/sam-k0/LoopHeroCallbackCore/releases)
 
 ## Explorer
 A must-have utility for datamining and investigating game behavior<br>
@@ -55,7 +55,7 @@ A must-have utility for datamining and investigating game behavior<br>
   Adds various tools to the game, such as a (global & instance) variable explorer, running GML commands, profiling performance and dumping game events.
 </details>
 
-[Download](https://github.com/sam-k0/LoopHero-Explorer/releases)
+[Download](https://github.com/sam-k0/LoopHero-Explorer/releases) [![Release](https://img.shields.io/github/v/release/sam-k0/LoopHero-Explorer)](https://github.com/sam-k0/LoopHero-Explorer/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/LoopHero-Explorer/total)](https://github.com/sam-k0/LoopHero-Explorer/releases)
 
 ## Snowy Hero 
 Adds a cozy snow effect to the game<br>
@@ -65,7 +65,7 @@ Adds a cozy snow effect to the game<br>
 
 </details>
 
-[Download](https://github.com/sam-k0/LoopHero-Snow/releases)
+[Download](https://github.com/sam-k0/LoopHero-Snow/releases) [![Release](https://img.shields.io/github/v/release/sam-k0/LoopHero-Snow)](https://github.com/sam-k0/LoopHero-Snow/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/LoopHero-Snow/total)](https://github.com/sam-k0/LoopHero-Snow/releases)
 
 ## BattleInfo 
 Displays extended information during battle<br>
@@ -76,7 +76,7 @@ Displays extended information during battle<br>
 
 </details>
 
-[Download](https://github.com/sam-k0/LoopHero-BattleInfo/releases)
+[Download](https://github.com/sam-k0/LoopHero-BattleInfo/releases) [![Release](https://img.shields.io/github/v/release/sam-k0/LoopHero-BattleInfo?include_prereleases)](https://github.com/sam-k0/LoopHero-BattleInfo/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/LoopHero-BattleInfo/total)](https://github.com/sam-k0/LoopHero-BattleInfo/releases)
 
 ## Chroma Hero (Custom Color Mod)
 Adds the option to choose a custom color for the hero on the map<br>
@@ -89,7 +89,7 @@ Adds the option to choose a custom color for the hero on the map<br>
 
 </details>
 
-[Download](https://github.com/sam-k0/Chroma-Hero/releases/)
+[Download](https://github.com/sam-k0/Chroma-Hero/releases/) [![Release](https://img.shields.io/github/v/release/sam-k0/Chroma-Hero)](https://github.com/sam-k0/Chroma-Hero/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/Chroma-Hero/total)](https://github.com/sam-k0/Chroma-Hero/releases)
 
 ## Discord Presence for Loop Hero
 Adds support for Discord Rich Presence to the game<br>
@@ -98,7 +98,7 @@ Adds support for Discord Rich Presence to the game<br>
   This mod will display a status on your discord profile saying "Playing Loop Hero" and then depending if you're in camp, "In Camp" or "On Expedition".
 </details>
 
-[Download](https://github.com/sam-k0/LoopHero-DiscordPresence/releases/)
+[Download](https://github.com/sam-k0/LoopHero-DiscordPresence/releases/) [![Release](https://img.shields.io/github/v/release/sam-k0/LoopHero-DiscordPresence)](https://github.com/sam-k0/LoopHero-DiscordPresence/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/LoopHero-DiscordPresence/total)](https://github.com/sam-k0/LoopHero-DiscordPresence/releases)
 
 ## Borderless Window (Borderless Hero)
 Allows to change the window to borderless fullscreen<br>
@@ -108,7 +108,7 @@ Reactivates the "maximize" button on the game window, and clicking it will enabl
 This can be really useful if you want to use your taskbar while playing in fullscreen or if you have multiple monitors.
 </details>
 
-[Download](https://github.com/sam-k0/LoopHero_Mods/releases)
+[Download](https://github.com/sam-k0/LoopHero_Mods/releases) [![Release](https://img.shields.io/github/v/release/sam-k0/LoopHero_Mods)](https://github.com/sam-k0/LoopHero_Mods/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/LoopHero_Mods/total)](https://github.com/sam-k0/LoopHero_Mods/releases)
 
 ## Custom Sprite Replacer
 Lets you change game sprites (example included)<br>
@@ -118,7 +118,7 @@ This mod allows you to replace sprites during runtime. Unlike replacing the spri
 Also you can't break your game installation using this.
 </details>
 
-[Download](https://github.com/sam-k0/AssetLoader/releases) - 
+[Download](https://github.com/sam-k0/AssetLoader/releases) [![Release](https://img.shields.io/github/v/release/sam-k0/AssetLoader)](https://github.com/sam-k0/AssetLoader/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/AssetLoader/total)](https://github.com/sam-k0/AssetLoader/releases) - 
 [Usage instructions](https://github.com/sam-k0/AssetLoader/blob/master/README.md)
 
 ## Scheduler Fix
@@ -129,7 +129,7 @@ Fixes lags caused by a bottleneck between CPU <-> GPU<br>
     Basically if your game lags for no reason (i.e. also in the main menu) even though your GPU and CPU are not anywhere near max capacity, this mod may fix the game for you.
 </details>
 
-[Download](https://github.com/sam-k0/LoopHero_SchedulerFix/releases)
+[Download](https://github.com/sam-k0/LoopHero_SchedulerFix/releases) [![Release](https://img.shields.io/github/v/release/sam-k0/LoopHero_SchedulerFix)](https://github.com/sam-k0/LoopHero_SchedulerFix/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/LoopHero_SchedulerFix/total)](https://github.com/sam-k0/LoopHero_SchedulerFix/releases)
 
 ## Music Maker Unlocked
 Unlocks the hidden *Music Maker*.<br>
@@ -140,7 +140,7 @@ Unlocks the hidden *Music Maker*.<br>
     There is a button in the main menu that will take you there.
 </details>
 
-[Download](https://github.com/sam-k0/LoopHero-MusicMaker/releases)
+[Download](https://github.com/sam-k0/LoopHero-MusicMaker/releases) [![Release](https://img.shields.io/github/v/release/sam-k0/LoopHero-MusicMaker)](https://github.com/sam-k0/LoopHero-MusicMaker/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/LoopHero-MusicMaker/total)](https://github.com/sam-k0/LoopHero-MusicMaker/releases)
 
 ## Pi Calculator
 Calculates pi (the funny 3.1415 number) while you play.<br>
@@ -149,5 +149,5 @@ Calculates pi (the funny 3.1415 number) while you play.<br>
     Does what the title says. Pretty useless but if you like funny numbers then this is for you.
 </details>
 
-[Download](https://github.com/sam-k0/LoopHero-PiCalculator/releases)
+[Download](https://github.com/sam-k0/LoopHero-PiCalculator/releases) [![Release](https://img.shields.io/github/v/release/sam-k0/LoopHero-PiCalculator)](https://github.com/sam-k0/LoopHero-PiCalculator/releases) [![Downloads](https://img.shields.io/github/downloads/sam-k0/LoopHero-PiCalculator/total)](https://github.com/sam-k0/LoopHero-PiCalculator/releases)
 
