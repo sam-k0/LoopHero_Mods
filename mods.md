@@ -10,29 +10,32 @@ All mods follow more or less the same [install procedure](https://github.com/sam
 > The current releases of all mods listed here require [YYTK for Loop Hero](https://github.com/sam-k0/YYToolkit_LoopHero/releases) **2026.10.14** or newer **and** [Callback Core](https://github.com/sam-k0/LoopHeroCallbackCore/releases) **2026.10.14** or newer, due to breaking changes.<br>
 > If you are updating from an older setup, replace `YYToolkit.dll`, `dinput8.dll` and `LoopHeroCallbackCore.dll` as well.
 
-# Quick install overview
-Install `YYTK for Loop Hero` (2026.10.14 or newer) from [here](https://github.com/sam-k0/YYToolkit_LoopHero/releases).
-You need to download both `dlls`, `YYToolkit.dll` and `dinput8.dll`, and place `dinput8.dll` in the same folder as the game executable.
+## Quick install overview
+
+<details>
+  <summary>Click here to expand</summary>
+Install <code>YYTK for Loop Hero</code> (2026.10.14 or newer) from [here](https://github.com/sam-k0/YYToolkit_LoopHero/releases).
+You need to download both <code>dlls</code>, <code>YYToolkit.dll</code> and <code>dinput8.dll</code>, and place <code>dinput8.dll</code> in the same folder as the game executable.
 For more info on why I use this, you can read this cool guide here [here](https://github.com/YAL-Game-Tools/TinyModInjector).
-For the `YYToolkit.dll`, make a new directory called `NativeMods` and put it there.
+For the <code>YYToolkit.dll</code>, make a new directory called <code>NativeMods</code> and put it there.
 
 Next, install the [core callback mod](https://github.com/sam-k0/LoopHeroCallbackCore/releases) (2026.10.14 or newer) before trying to run the game with the below listed mods.
-After downloading, create a new directory called `autoexec` and put it there.
+After downloading, create a new directory called <code>autoexec</code> and put it there.
 It will look something like this: 
 
-```
-├── Loop Hero.exe          <-- the game executable
+<pre><code>├── Loop Hero.exe          &lt;-- the game executable
 ├── data.win
-├── dinput8.dll            <-- the mod injector (makes the game load the mod framework), loads dll files in the "NativeMods" folder
+├── dinput8.dll            &lt;-- the mod injector (makes the game load the mod framework), loads dll files in the "NativeMods" folder
 ├── NativeMods/
-│   └── YYToolkit.dll      <-- the mod framework (Loads the actual mods)
-├── autoexec/              <-- the folder where you put mods
-│   └── LoopHeroCallbackCore.dll <-- the callback core / core mod
-└── *other game files*
-```
-If you download a mod that uses the `Assets` folder, create it also in the game directory and put all contents like jpg files there.
+│   └── YYToolkit.dll      &lt;-- the mod framework (Loads the actual mods)
+├── autoexec/              &lt;-- the folder where you put mods
+│   └── LoopHeroCallbackCore.dll &lt;-- the callback core / core mod
+└── *other game files*</code></pre>
+If you download a mod that uses the <code>Assets</code> folder, create it also in the game directory and put all contents like jpg files there.
 
 → If you are using a SteamDeck (Linux) you need to follow these extra steps [to get proton recognize the dinput8.dll](https://www.reddit.com/r/linux_gaming/comments/y08u34/comment/irqlpkr/?utm_source=share&utm_medium=mweb3x&utm_name=mweb3xcss&utm_term=1&utm_content=share_button).
+</details>
+
 
 <a id="available-mods"></a>
 # Available mods
@@ -72,7 +75,7 @@ Displays extended information during battle<br>
 <details>
   <summary>Details</summary>
   Displays more detailed information for enemies during battle.
-  Configuration can be changed in `options.ini` file.
+  Configuration can be changed in <code>options.ini</code> file.
 
 </details>
 

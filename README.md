@@ -14,9 +14,6 @@ Each mod lives in its own repository and is downloaded from that repository's Re
 The [mod list](https://github.com/sam-k0/LoopHero_Mods/blob/master/mods.md) links to all of them.<br>
 The only mod still released from this repository is Borderless Window (Borderless Hero), see the Releases tab on the right.
 
-> [!IMPORTANT]
-> The current mod releases require [YYTK for Loop Hero](https://github.com/sam-k0/YYToolkit_LoopHero/releases) **2026.10.14** or newer **and** [Callback Core](https://github.com/sam-k0/LoopHeroCallbackCore/releases) **2026.10.14** or newer, due to breaking changes.<br>
-> If you are updating from an older setup, replace `YYToolkit.dll`, `dinput8.dll` and `LoopHeroCallbackCore.dll` as well.
 
 # Installation of the modloader
 
